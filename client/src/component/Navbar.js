@@ -21,6 +21,7 @@ import {
 import FlexBetween from "./FlexBetween"
 import { useDispatch, useSelector } from "react-redux"
 import { setMode } from '../state/slice/modeSlice'
+import { setSideBarOpen } from '../state/slice/sideBarSlice'
 
 
 const Navbar = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
         >
           {/* Left Side */}
           <FlexBetween>
-            <IconButton onClick={()=>console.log("OpenMenu/CloseMenu")}>
+            <IconButton onClick={()=>dispatch(setSideBarOpen())}>
               <MenuIcon/>
             </IconButton>
             <FlexBetween
