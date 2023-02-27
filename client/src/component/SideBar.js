@@ -13,7 +13,7 @@ import {
     ListItemIcon
 } from "@mui/material"
 
-import { ChevronLeft } from "@mui/icons-material"
+import { ChevronLeft, SettingsOutlined } from "@mui/icons-material"
 
 import { useLocation, useNavigate } from 'react-router-dom'
 import FlexBetween from './FlexBetween'
@@ -23,7 +23,7 @@ import navItems from '../assets/navItems'
 import { red } from '@mui/material/colors'
 
 
-const SideBar = ({match}) => {
+const SideBar = ({match, user}) => {
     const drawerWidth = '250px';
     const open = useSelector((state)=>state.sideBarStatus.sideBarOpen)
     const dispatch = useDispatch();
@@ -113,6 +113,33 @@ const SideBar = ({match}) => {
                         )
                     }
                 </List>
+            </Box>
+            <Box width="100%" position="absolute" bottom="2rem">
+                <Divider/>
+                <FlexBetween textTransform="none"  m="0.5rem 2rem 0 3rem">
+                    <Box textAlign="center" m="1rem 1rem" >
+                        <Typography 
+                            fontWeight="bold"
+                            fontSize="0.9rem"
+                            sx={{ color: theme.palette.secondary[100]}}
+                        >
+                            {user.name}
+                        </Typography>
+                        <Typography 
+                            fontWeight="bold"
+                            fontSize="0.9rem"
+                            sx={{ color: theme.palette.secondary[100]}}
+                        >
+                            {user.occupation}
+                        </Typography>
+                    </Box>
+                    <IconButton>
+                        <SettingsOutlined sx={{
+                            color: theme.palette.secondary[300],
+                            fonstSize: "25px"
+                        }}/>
+                    </IconButton>
+                </FlexBetween>
             </Box>
         </Drawer>}
     </Box>

@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-const testUserId = "63701cc1f03239c72c000180"
+
+const testUserId = '123455'
+
 const initialState = {
-    mode: 'dark',
-    userId: testUserId
+    userID: testUserId
 }
 
 export const modeSlice = createSlice({
-    name: 'mode',
+    name: 'users',
     initialState,
     reducers:{
         setMode: (state)=>{

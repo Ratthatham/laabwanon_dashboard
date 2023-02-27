@@ -24,7 +24,7 @@ import { setMode } from '../state/slice/modeSlice'
 import { setSideBarOpen } from '../state/slice/sideBarSlice'
 
 
-const Navbar = () => {
+const Navbar = ({user}) => {
   const dispatch = useDispatch();
   const mode = useSelector((state)=>state.mode.mode)
   const theme = useTheme();
