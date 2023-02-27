@@ -10,6 +10,11 @@ import generalRoutes from "./routes/general.js"
 import managementRoutes from "./routes/management.js"
 import salesRoutes from "./routes/sales.js"
 
+// Data import 
+import User from "./models/user.js"
+import getUser from "./controllers/general.js"
+import { dataUser } from "./data/data.js"
+
 /* Configuration */
 dotenv.config();
 const app = express();
@@ -27,15 +32,21 @@ app.use("/sales", salesRoutes)
 app.use("/management", managementRoutes)
 
 
+
+
 /* Mongo Setup */
 const PATH = process.env.PATH_URL || 9000;
 const PORT = process.env.PORT;
 mongoose.set('strictQuery', true);
+//Connect to MangoDB
 mongoose.connect(PATH, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
 .then(()=>{
     app.listen(PORT, () => console.log(`Server Run on ${PORT}`))
+
+    // Insert the data array of documents into the Collection of MangoDB 
+    // User.insertMany(dataUser)
 })
 .catch((error)=> console.log( `${error} did not connect`))
