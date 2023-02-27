@@ -9,7 +9,8 @@ import {
     ListItem,
     ListItemButton,
     ListItemText,
-    Typography
+    Typography,
+    ListItemIcon
 } from "@mui/material"
 
 import { ChevronLeft } from "@mui/icons-material"
@@ -19,6 +20,7 @@ import FlexBetween from './FlexBetween'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSideBarOpen } from '../state/slice/sideBarSlice'
 import navItems from '../assets/navItems'
+import { red } from '@mui/material/colors'
 
 
 const SideBar = ({match}) => {
@@ -62,7 +64,55 @@ const SideBar = ({match}) => {
                         </Box>
                     </FlexBetween>
                 </Box>
+                <List>
+                    {
+                        navItems.map(({text, icon})=>{
+                            const lcText = text.toLocaleLowerCase();
+                            
+                            return(
+                                <ListItem key={text} disablePadding>
+                                    <ListItemButton 
+                                        onClick={()=>{
+                                            navigate(`/${lcText}`)
+                                            setActive(lcText)
+                                        }}
 
+                                        sx={{
+                                            backgroundColor: active === lcText 
+                                                ? theme.palette.secondary[300]
+                                                : "transparent",
+                                            color:
+                                                active === lcText
+                                                ? theme.palette.primary[600]
+                                                : theme.palette.secondary[100]
+                                        }}
+                                    > 
+                                        <ListItemIcon 
+                                            sx={{
+                                                ml: "2rem",
+                                                color: active === lcText
+                                                ? theme.palette.primary[600] 
+                                                : theme.palette.secondary[200]
+                                            }}
+                                        >
+                                            {icon}
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+
+                                                color: active === lcText
+                                                ? theme.palette.primary[600] 
+                                                : theme.palette.secondary[200]
+                                            }}
+                                        >
+                                            {text}
+                                        </ListItemText>
+                                    </ListItemButton>    
+                                </ListItem>
+                            )}
+                        )
+                    }
+                </List>
             </Box>
         </Drawer>}
     </Box>
