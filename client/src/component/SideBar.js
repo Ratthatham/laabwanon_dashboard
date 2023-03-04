@@ -114,7 +114,7 @@ const SideBar = ({match, user}) => {
                     }
                 </List>
             </Box>
-            <Box width="100%" position="relative" bottom="2rem">
+            <Box width="100%"  bottom="2rem">
                 <Divider/>
                 <FlexBetween textTransform="none"  m="0.5rem 2rem 0 3rem">
                     <Box textAlign="center" m="1rem 1rem" >
