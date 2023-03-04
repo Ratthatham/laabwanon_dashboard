@@ -6,14 +6,18 @@ import dotenv from "dotenv"
 import helmet from "helmet"
 import morgan from "morgan"
 
+import clientRoutes from "./routes/client.js"
 import generalRoutes from "./routes/general.js"
 import managementRoutes from "./routes/management.js"
 import salesRoutes from "./routes/sales.js"
 
 // Data import 
 import User from "./models/user.js"
+import Product from "./models/product.js"
+import ProductState from "./models/ProductState.js"
 import getUser from "./controllers/general.js"
-import { dataUser } from "./data/data.js"
+import { dataUser, dataProduct, dataProductStat } from "./data/data.js"
+
 
 /* Configuration */
 dotenv.config();
@@ -27,6 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 /* Routes */
+app.use("/client", clientRoutes)
 app.use("/general", generalRoutes)
 app.use("/sales", salesRoutes)
 app.use("/management", managementRoutes)
@@ -48,5 +53,7 @@ mongoose.connect(PATH, {
 
     // Insert the data array of documents into the Collection of MangoDB 
     // User.insertMany(dataUser)
+    // Product.insertMany(dataProduct);
+    // ProductState.insertMany(dataProductStat);
 })
 .catch((error)=> console.log( `${error} did not connect`))
