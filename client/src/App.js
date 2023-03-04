@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./scenes/layout/layout"
 import Dashboard from "./scenes/dashboard/dashboard"
+import Products from './scenes/products/products'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path='products' element={<Products/>}/>
         </Route>
       </Routes>
     </ThemeProvider>
