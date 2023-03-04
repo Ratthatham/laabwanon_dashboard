@@ -20,7 +20,7 @@ import FlexBetween from './FlexBetween'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSideBarOpen } from '../state/slice/sideBarSlice'
 import navItems from '../assets/navItems'
-import { red } from '@mui/material/colors'
+
 
 
 const SideBar = ({match, user}) => {
