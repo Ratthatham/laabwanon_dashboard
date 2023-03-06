@@ -16,7 +16,8 @@ import User from "./models/user.js"
 import Product from "./models/product.js"
 import ProductState from "./models/ProductState.js"
 import getUser from "./controllers/general.js"
-import { dataUser, dataProduct, dataProductStat } from "./data/data.js"
+import Transactions from "./models/transactions.js"
+import { dataUser, dataProduct, dataProductStat, dataTransaction } from "./data/data.js"
 
 
 /* Configuration */
@@ -55,5 +56,6 @@ mongoose.connect(PATH, {
     // User.insertMany(dataUser)
     // Product.insertMany(dataProduct);
     // ProductState.insertMany(dataProductStat);
+    // Transactions.insertMany(dataTransaction);
 })
 .catch((error)=> console.log( `${error} did not connect`))
