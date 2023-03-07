@@ -6,7 +6,7 @@ import { useGetSalesQuery } from '../state/apiSlice'
 
 const OverviewChart = ({isDashboard = false, view}) => {
   const theme = useTheme();
-  const {data, error, isLoading} = useGetSalesQuery();
+  const {data, isLoading} = useGetSalesQuery();
   console.log(data)
   const [totalSalesLine, totalUnitLine]= useMemo(()=>{
     if(!data) return [];
