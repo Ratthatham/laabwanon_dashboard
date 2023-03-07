@@ -12,12 +12,19 @@ import managementRoutes from "./routes/management.js"
 import salesRoutes from "./routes/sales.js"
 
 // Data import 
-import User from "./models/user.js"
-import Product from "./models/product.js"
-import ProductState from "./models/ProductState.js"
-import getUser from "./controllers/general.js"
-import Transactions from "./models/transactions.js"
-import { dataUser, dataProduct, dataProductStat, dataTransaction } from "./data/data.js"
+// import User from "./models/user.js"
+// import Product from "./models/product.js"
+// import ProductState from "./models/ProductState.js"
+// import getUser from "./controllers/general.js"
+// import Transactions from "./models/transactions.js"
+// import OverallStat from "./models/overallStat.js"
+import { 
+    dataUser, 
+    dataProduct, 
+    dataProductStat, 
+    dataTransaction,
+    dataOverallStat 
+} from "./data/data.js"
 
 
 /* Configuration */
@@ -57,5 +64,7 @@ mongoose.connect(PATH, {
     // Product.insertMany(dataProduct);
     // ProductState.insertMany(dataProductStat);
     // Transactions.insertMany(dataTransaction);
+    // OverallStat.insertMany(dataOverallStat);
+
 })
 .catch((error)=> console.log( `${error} did not connect`))
